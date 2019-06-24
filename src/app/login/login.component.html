@@ -1,0 +1,33 @@
+
+<div class="row ">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6 ">
+    <div class="jumbotron" >
+      <div class="text-center h1 text-dark"> Login </div>
+      <form #ref=ngForm (ngSubmit)="submit(ref.value)">
+        <div class="form-group mt-5">
+        <label for="username"> <h3 class="text-info"> Username:</h3> </label>
+        <input type="text" class="form-control" ngModel name="username" #username=ngModel >
+        
+        
+        </div>
+
+        <div class="form-group">
+            <label for="password"><h3 class="text-info">Password:</h3></label>
+            <input type="password" class="form-control" ngModel name="password" #password=ngModel>
+        
+            
+            </div>
+
+            <div class="text-center mt-5">
+              <button type="submit" class="btn btn-primary"  >Login</button>
+            </div>
+
+
+      </form>
+      <br><br>
+
+      
+    </div>
+  </div>
+</div>

@@ -1,0 +1,148 @@
+
+  <div class="row">
+  
+  <div class="col-sm-12" >
+  <h1 class="text-center text-success h2"> <u>All Orders </u></h1> 
+  <div class="text-right text-danger mt-3 ml-3">NewOrder
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add">+</button></div>
+
+      <div class="modal fade" id="add">
+          <div class="modal-dialog">
+            <div class="modal-content text-white  bg-info">
+                   <div class="modal-header">
+                        <h2 class="text-danger">Add New Order</h2>
+                        <button type="button" class="btn btn-dark" data-dismiss="modal">X</button>
+                   </div>
+                   <div class="modal-body bg-dark">
+                      <form #new="ngForm" (ngSubmit)="addneworder(new.value)">
+  
+                        
+                          
+  
+                          <div class="form-group">
+                              <label><h6>OrderNumber</h6></label>
+                              <input type="number" class="form-control" name="ordernumber" ngModel>
+                          </div>
+                          <div class="form-group">
+                              <label><h6>OrderDuedate</h6></label>
+                              <input type="date" class="form-control" name="orderduedate" ngModel>
+                          </div>
+                          <div class="form-group">
+                              <label><h6>CustomerBuyername</h6></label>
+                              <input type="text" class="form-control" name="customerbuyername" ngModel>
+                          </div>
+                          <div class="form-group">
+                              <label><h6>CustomerAddress</h6></label>
+                              <input type="text" class="form-control" name="CustomerAddress" ngModel>
+                          </div>
+                          <div class="form-group">
+                              <label><h6>CustomerPhone</h6></label>
+                              <input type="number" class="form-control" name="customerphone" ngModel>
+                          </div>
+                          <div class="form-group">
+                              <label><h6>OrderTotal</h6></label>
+                              <input type="number" class="form-control" name="ordertotal" ngModel>
+                          </div>
+                       
+                         
+                    <button type="submit" class="btn btn-success" style="margin-left:220px">ADD</button>
+  
+                      </form>
+  
+                   </div> 
+                  
+                  
+                   
+            </div>
+          </div>
+        </div>
+  
+  
+  <table class="table  text-center mt-3">
+    <thead>
+      <th>S.no</th>
+      <th>OrderNumber</th>
+      <th>OrderDuedate</th>
+      <th>CustomerBuyername</th>
+      <th>CustomerAddress</th>
+      <th>CustomerPhone</th>
+     <th>OrderTotal</th>
+     <th>EditOrders</th>
+     <th>DeleteOrders</th>
+      
+      
+    </thead>
+         
+
+
+  <tr *ngFor="let i of list let in=index">
+
+  <td>{{in+1}}</td> 
+  <td>{{i.ordernumber}}</td>
+  <td>{{i.orderduedate}}</td>
+  <td>{{i.customerbuyername}}</td>
+  <td>{{i.customeraddress}}</td>
+  <td>{{i.customerphone}}</td>
+  <td>{{i.ordertotal}}</td>
+  <th> <button (click)="edit(i)" type="button" class="btn btn-warning" data-toggle="modal" data-target="#editbtn">Edit</button> </th>
+  <div class="modal fade" id="editbtn">
+      <div class="modal-dialog">
+        <div class="modal-content text-white bg-info">
+               <div class="modal-header">
+                    <h2>Edit Order</h2>
+                    <button type="button" class="btn btn-dark" data-dismiss="modal">X</button>
+               </div>
+               <div class="modal-body bg-dark">
+                  <form #new="ngForm" (ngSubmit)="edit(new.value)">
+
+                    
+                      
+
+                      <div class="form-group">
+                          <label><h6>OrderNumber</h6></label>
+                          <input type="text" class="form-control" name="ordernumber" ngModel>
+                      </div>
+                      <div class="form-group">
+                          <label><h6>OrderDuedate</h6></label>
+                          <input type="date" class="form-control" name="orderduedate" ngModel>
+                      </div>
+                      <div class="form-group">
+                          <label><h6>CustomerBuyername</h6></label>
+                          <input type="text" class="form-control" name="customerbuyername" ngModel>
+                      </div>
+                      <div class="form-group">
+                          <label><h6>CustomerAddress</h6></label>
+                          <input type="text" class="form-control" name="CustomerAddress" ngModel>
+                      </div>
+                      <div class="form-group">
+                          <label><h6>CustomerPhone</h6></label>
+                          <input type="text" class="form-control" name="customerphone" ngModel>
+                      </div>
+                      <div class="form-group">
+                          <label><h6>OrderTotal</h6></label>
+                          <input type="text" class="form-control" name="ordertotal" ngModel>
+                      </div>
+                   
+                     
+                <button type="submit" class="btn btn-success" style="margin-left:220px">Update</button>
+
+                  </form>
+
+               </div> 
+              
+              
+               
+        </div>
+      </div>
+    </div>
+      <th><button  (click)="delete(i)" type="button" class="btn btn-danger">Delete</button></th>
+ 
+
+  </tr>
+
+
+  </table>
+  </div>
+  
+  </div>
+  
